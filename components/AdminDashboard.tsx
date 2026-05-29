@@ -6,7 +6,8 @@ import { Meal } from '../lib/data';
 import {
   X, LayoutDashboard, Plus, Trash2, Edit2, ShieldAlert,
   CheckCircle, Navigation, ExternalLink, Settings,
-  CreditCard, Banknote, DollarSign, BadgeCheck, Upload
+  CreditCard, Banknote, DollarSign, BadgeCheck, Upload,
+  Lock, Eye, EyeOff, LogOut, ChefHat, ShieldCheck
 } from 'lucide-react';
 
 interface AdminDashboardProps {
@@ -14,9 +15,18 @@ interface AdminDashboardProps {
   onClose: () => void;
 }
 
+const ADMIN_PASSWORD = 'Kavata@2026';
+
 export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps) {
   const { meals, orders, addMeal, updateMeal, deleteMeal, updateOrderStatus, markOrderAsPaid } = useAppContext();
   const [activeTab, setActiveTab] = useState<'orders' | 'meals' | 'settings'>('orders');
+
+  // ── Admin Auth Gate
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [passwordInput, setPasswordInput] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [authError, setAuthError] = useState('');
+  const [authLoading, setAuthLoading] = useState(false);
 
   // Meal CRUD
   const [showAddForm, setShowAddForm] = useState(false);
@@ -35,6 +45,29 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
   const [mpesaRefs, setMpesaRefs] = useState<Record<string, string>>({});
 
   if (!isOpen) return null;
+
+  // ── Admin Login Handler
+  const handleAdminLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    setAuthError('');
+    setAuthLoading(true);
+    setTimeout(() => {
+      if (passwordInput === ADMIN_PASSWORD) {
+        setIsAuthenticated(true);
+        setActiveTab('orders');
+      } else {
+        setAuthError('Incorrect password. Access denied.');
+      }
+      setAuthLoading(false);
+    }, 900);
+  };
+
+  const handleAdminLogout = () => {
+    setIsAuthenticated(false);
+    setPasswordInput('');
+    setAuthError('');
+    setActiveTab('orders');
+  };
 
   // ── Image File Compression & Upload Handler
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -115,6 +148,88 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
   const totalRevenue = orders.filter(o => o.isPaid).reduce((s, o) => s + o.total, 0);
   const pendingCount = orders.filter(o => !o.isPaid).length;
 
+  // ── ADMIN LOGIN GATE ──────────────────────────────────────────────
+  if (!isAuthenticated) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in font-sans">
+        <div onClick={onClose} className="absolute inset-0 bg-[#0B0B0C]/95 backdrop-blur-md" />
+
+        <div className="relative w-full max-w-sm bg-[#0C0C0E] border border-white/5 rounded-3xl shadow-2xl z-10 overflow-hidden">
+          {/* Gold glow accent */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-[#DFB15B]/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Close button */}
+          <button onClick={onClose} className="absolute top-4 right-4 p-2 rounded-full bg-white/5 text-white/40 hover:text-white cursor-pointer transition-colors z-10">
+            <X className="w-4 h-4" />
+          </button>
+
+          <div className="p-8 space-y-6">
+            {/* Logo / Icon */}
+            <div className="text-center space-y-3">
+              <div className="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-tr from-[#FF6F3D] to-[#DFB15B] flex items-center justify-center shadow-xl shadow-[#FF6F3D]/20">
+                <ChefHat className="w-8 h-8 text-[#0B0B0C]" />
+              </div>
+              <div>
+                <h2 className="text-xl font-serif font-bold text-white">Chef Admin Console</h2>
+                <p className="text-[10px] text-white/40 uppercase tracking-widest font-semibold mt-1">Kavata's Kitchen · Secure Access</p>
+              </div>
+            </div>
+
+            {/* Login Form */}
+            <form onSubmit={handleAdminLogin} className="space-y-4">
+              <div className="space-y-1.5">
+                <label className="text-[9px] uppercase tracking-wider text-white/40 font-bold block">Admin Password</label>
+                <div className="relative">
+                  <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/30">
+                    <Lock className="w-4 h-4" />
+                  </div>
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    required
+                    value={passwordInput}
+                    onChange={e => { setPasswordInput(e.target.value); setAuthError(''); }}
+                    placeholder="Enter admin password"
+                    autoFocus
+                    className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 pl-10 pr-12 text-white text-sm focus:outline-none focus:border-[#DFB15B] transition-all placeholder-white/20"
+                  />
+                  <button type="button" onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/30 hover:text-white cursor-pointer transition-colors">
+                    {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                  </button>
+                </div>
+                {authError && (
+                  <p className="text-[11px] text-red-400 font-semibold flex items-center gap-1.5 pl-1">
+                    <ShieldAlert className="w-3.5 h-3.5" /> {authError}
+                  </p>
+                )}
+              </div>
+
+              <button
+                type="submit"
+                disabled={authLoading}
+                className="w-full py-4 rounded-2xl bg-gradient-to-r from-[#FF6F3D] to-[#DFB15B] text-[#0B0B0C] font-bold text-xs uppercase tracking-widest hover:opacity-90 active:scale-[0.98] transition-all cursor-pointer flex items-center justify-center gap-2 shadow-xl shadow-[#FF6F3D]/20 disabled:opacity-60"
+              >
+                {authLoading ? (
+                  <span className="flex items-center gap-2">
+                    <span className="w-4 h-4 border-2 border-[#0B0B0C]/40 border-t-[#0B0B0C] rounded-full animate-spin" />
+                    Verifying…
+                  </span>
+                ) : (
+                  <><ShieldCheck className="w-4 h-4" /> Enter Dashboard</>
+                )}
+              </button>
+            </form>
+
+            <p className="text-center text-[9px] text-white/20 leading-relaxed">
+              This console is restricted to Kavata's Kitchen staff only.<br />Unauthorised access is prohibited.
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ── AUTHENTICATED DASHBOARD ───────────────────────────────────────
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fade-in font-sans">
       <div onClick={onClose} className="absolute inset-0 bg-[#0B0B0C]/95 backdrop-blur-md" />
