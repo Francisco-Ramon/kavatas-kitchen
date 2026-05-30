@@ -136,11 +136,12 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
         setOrders(fetchedOrders);
         
         // Find if this specific device/session has an active (undelivered) order
+        const storedActiveOrderId = localStorage.getItem('kavatas_active_order_id');
         const storedLocalOrderIds = JSON.parse(localStorage.getItem('kavatas_orders_ids') || '[]');
         const active = fetchedOrders.find(
           (o: Order) => 
             o.status !== 'Delivered' && 
-            (o.customer.userId === currentUser?.id || storedLocalOrderIds.includes(o.id))
+            (o.id === storedActiveOrderId || storedLocalOrderIds.includes(o.id))
         );
         
         if (active) {
@@ -239,6 +240,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       const newOrders = [newOrder, ...orders];
       saveOrders(newOrders);
     }
+    
+    // Set active order ID in localStorage to keep track of active order across reloads
+    localStorage.setItem('kavatas_active_order_id', orderId);
     
     // Also save in localStorage as a backup
     const localBackupOrders = JSON.parse(localStorage.getItem('kavatas_orders') || '[]');

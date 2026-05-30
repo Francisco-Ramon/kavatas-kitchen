@@ -26,6 +26,8 @@ export const metadata: Metadata = {
   }
 };
 
+import Providers from "./providers";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -37,7 +39,9 @@ export default function RootLayout({
       className={`${outfit.variable} ${playfair.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-[#0B0B0C] text-white flex flex-col font-sans select-none">
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   );
