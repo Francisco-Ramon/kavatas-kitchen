@@ -106,8 +106,6 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
       title,
       description,
       priceKES,
-      discountPriceKES: discountPriceKES === '' ? undefined : Number(discountPriceKES),
-      offerText: offerText || undefined,
       imageUrl,
       category,
       ingredients: ingArray,
@@ -115,6 +113,14 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
       reviewsCount: editingMeal ? editingMeal.reviewsCount : 0,
       preparationTime: prepTime
     };
+
+    if (discountPriceKES !== '') {
+      mealPayload.discountPriceKES = Number(discountPriceKES);
+    }
+    if (offerText) {
+      mealPayload.offerText = offerText;
+    }
+
 
     if (editingMeal) {
       updateMeal(mealPayload);
