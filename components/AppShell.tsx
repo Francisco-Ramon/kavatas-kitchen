@@ -50,7 +50,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
               <h3 className="text-sm font-serif font-bold text-white tracking-wider">Kavata’s Kitchen</h3>
             </div>
             <p className="leading-relaxed">
-              Handcrafting luxury Swahili‑heritage and gourmet food delivered fresh personally inside Nairobi. Experiential, clean, and beautiful dining.
+              Handcrafting luxury Swahili‑heritage and gourmet food delivered fresh personally inside Kakamega Town. Experiential, clean, and beautiful dining.
             </p>
             <p className="text-[10px] text-white/30">© 2026 Kavata’s Kitchen. Built in luxury style.</p>
           </div>
@@ -59,11 +59,11 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
           <div className="space-y-4">
             <h4 className="text-xs uppercase tracking-wider text-white font-bold">Premium Zones</h4>
             <ul className="space-y-2 leading-relaxed">
-              <li>• Westlands</li>
-              <li>• Lavington & Kilimani</li>
-              <li>• Gigiri & Runda</li>
-              <li>• Karen Estate</li>
-              <li>• Nairobi Central</li>
+              <li>• Milimani</li>
+              <li>• Lurambi</li>
+              <li>• Joyland & Bukhungu</li>
+              <li>• Amalemba Estate</li>
+              <li>• Kakamega Central</li>
             </ul>
           </div>
 

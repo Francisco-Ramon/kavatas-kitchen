@@ -74,14 +74,14 @@ export default function CheckoutModal({ isOpen, onClose, onOrderCompleted }: Che
           setGps(link); setDetectingGps(false); setGpsSuccess(true);
         },
         () => {
-          const link = `https://www.google.com/maps?q=-1.2921,36.8219`;
+          const link = `https://www.google.com/maps?q=0.2827,34.7519`;
           setGps(link); setDetectingGps(false); setGpsSuccess(true);
         },
         { timeout: 8000 }
       );
     } else {
       setTimeout(() => {
-        setGps('https://www.google.com/maps?q=-1.2921,36.8219');
+        setGps('https://www.google.com/maps?q=0.2827,34.7519');
         setDetectingGps(false); setGpsSuccess(true);
       }, 1000);
     }
@@ -269,7 +269,7 @@ export default function CheckoutModal({ isOpen, onClose, onOrderCompleted }: Che
 
             <div className="space-y-1.5">
               <label className="text-[9px] uppercase tracking-wider text-white/50 font-bold block">Delivery Address</label>
-              <input type="text" required value={address} onChange={e => setAddress(e.target.value)} placeholder="e.g. Westlands, Apt 4B, Nairobi"
+              <input type="text" required value={address} onChange={e => setAddress(e.target.value)} placeholder="e.g. Milimani, Apt 4B, Kakamega Town"
                 className="w-full bg-white/5 border border-white/10 rounded-2xl py-3.5 px-4 text-white text-sm focus:outline-none focus:border-[#DFB15B] transition-all" />
             </div>
 
