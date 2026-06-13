@@ -3,6 +3,7 @@
 import React from 'react';
 import { useUI } from '../lib/UIContext';
 import { useAppContext } from '../lib/AppContext';
+import { usePathname } from 'next/navigation';
 import NavBar from './NavBar';
 import CartDrawer from './CartDrawer';
 import CheckoutModal from './CheckoutModal';
@@ -23,6 +24,8 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
   } = useUI();
 
   const { activeOrder } = useAppContext();
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   return (
     <div className="min-h-screen bg-[#0B0B0C] text-white flex flex-col font-sans overflow-x-hidden selection:bg-[#DFB15B] selection:text-[#0B0B0C]">
@@ -30,7 +33,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       <NavBar />
 
       {/* Main content page area */}
-      <main className="flex-grow">
+      <main className={`flex-grow ${isHome ? '' : 'pt-24 sm:pt-28'}`}>
         {children}
       </main>
 
