@@ -118,7 +118,7 @@ export default function Hero({ onOrderNowClick, onExploreMenuClick, onOpenChat }
         {/* Modern African Tagline badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 animate-fade-in">
           <span className="w-2 h-2 rounded-full bg-[#FF6F3D] animate-ping" />
-          <p className="text-xs uppercase tracking-[0.25em] text-[#DFB15B] font-bold">
+          <p className="text-[9px] tracking-wider sm:text-xs sm:tracking-[0.25em] text-[#DFB15B] font-bold">
             Best Meals in Kenya Delivered Fresh
           </p>
         </div>

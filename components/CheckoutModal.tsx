@@ -111,7 +111,7 @@ export default function CheckoutModal({ isOpen, onClose, onOrderCompleted }: Che
 
       <div className="relative w-full max-w-lg bg-[#0C0C0E] border border-white/5 rounded-3xl shadow-2xl z-10 overflow-y-auto max-h-[92vh] scrollbar-none">
         {/* Header */}
-        <div className="p-6 border-b border-white/5 flex items-center justify-between">
+        <div className="p-4 sm:p-6 border-b border-white/5 flex items-center justify-between">
           <div>
             <h2 className="text-xl font-serif font-bold text-white">Exclusive Checkout</h2>
             <div className="flex items-center gap-2 mt-1">
@@ -127,7 +127,7 @@ export default function CheckoutModal({ isOpen, onClose, onOrderCompleted }: Che
 
         {/* ──── STEP 1: AUTH ──── */}
         {step === 1 && (
-          <div className="p-6 space-y-5">
+          <div className="p-4 sm:p-6 space-y-5">
             {currentUser ? (
               /* Already logged in */
               <div className="p-5 rounded-2xl bg-[#DFB15B]/5 border border-[#DFB15B]/20 flex items-center gap-4">
@@ -202,7 +202,7 @@ export default function CheckoutModal({ isOpen, onClose, onOrderCompleted }: Che
             {/* Register form */}
             {!currentUser && authMode === 'register' && (
               <form onSubmit={handleAuth} className="space-y-4">
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1.5">
                     <label className="text-[9px] uppercase tracking-wider text-white/50 font-bold block">Full Name</label>
                     <input type="text" required value={authName} onChange={e => setAuthName(e.target.value)} placeholder="e.g. Wanjiku Kamau"
@@ -249,12 +249,12 @@ export default function CheckoutModal({ isOpen, onClose, onOrderCompleted }: Che
 
         {/* ──── STEP 2: DELIVERY ──── */}
         {step === 2 && (
-          <form onSubmit={handleSubmit} className="p-6 space-y-5">
+          <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-5">
             <p className="text-[10px] text-white/40 leading-relaxed">
               Fill your delivery details below. Chef Kavata personally prepares and delivers your order.
             </p>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-1.5">
                 <label className="text-[9px] uppercase tracking-wider text-white/50 font-bold block">Full Name</label>
                 <input type="text" required value={name} onChange={e => setName(e.target.value)} placeholder="Your name"

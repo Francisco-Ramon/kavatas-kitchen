@@ -48,34 +48,34 @@ export default function MenuPage() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
           {mealsLoading ? (
             Array.from({ length: 6 }).map((_, idx) => (
-              <div key={idx} className="group relative rounded-3xl bg-[#18181A]/40 border border-white/5 p-4 flex flex-col justify-between h-[450px] animate-pulse overflow-hidden backdrop-blur-md">
+              <div key={idx} className="group relative rounded-2xl sm:rounded-3xl bg-[#18181A]/40 border border-white/5 p-3 sm:p-4 flex flex-col justify-between h-[280px] sm:h-[400px] md:h-[450px] animate-pulse overflow-hidden backdrop-blur-md">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#DFB15B]/5 to-transparent rounded-full opacity-0 pointer-events-none" />
-                <div className="relative aspect-[4/3] rounded-2xl bg-white/5 mb-5 w-full overflow-hidden" />
-                <div className="flex-1 space-y-4 flex flex-col justify-between">
+                <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl bg-white/5 mb-3 sm:mb-5 w-full overflow-hidden" />
+                <div className="flex-1 space-y-2 sm:space-y-4 flex flex-col justify-between">
                   <div>
-                    <div className="flex justify-between items-start gap-2 mb-2">
-                      <div className="h-6 bg-white/10 rounded-lg w-2/3" />
-                      <div className="h-5 bg-[#DFB15B]/5 border border-[#DFB15B]/10 rounded-lg w-12" />
+                    <div className="flex justify-between items-start gap-1 sm:gap-2 mb-1 sm:mb-2">
+                      <div className="h-4 sm:h-6 bg-white/10 rounded-lg w-2/3" />
+                      <div className="h-4 sm:h-5 bg-[#DFB15B]/5 border border-[#DFB15B]/10 rounded-lg w-8 sm:w-12" />
                     </div>
-                    <div className="space-y-2 mb-4">
+                    <div className="hidden md:block space-y-2 mb-4">
                       <div className="h-3 bg-white/5 rounded-md w-full" />
                       <div className="h-3 bg-white/5 rounded-md w-4/5" />
                     </div>
-                    <div className="flex flex-wrap gap-1.5 mb-5">
+                    <div className="hidden md:flex flex-wrap gap-1.5 mb-5">
                       <div className="h-4 bg-white/5 border border-white/5 rounded-md w-14" />
                       <div className="h-4 bg-white/5 border border-white/5 rounded-md w-14" />
                       <div className="h-4 bg-white/5 border border-white/5 rounded-md w-14" />
                     </div>
                   </div>
-                  <div className="flex items-center justify-between border-t border-white/5 pt-4">
+                  <div className="flex items-center justify-between border-t border-white/5 pt-2 sm:pt-4">
                     <div className="space-y-1">
-                      <div className="h-2.5 bg-white/5 rounded w-10" />
-                      <div className="h-5 bg-white/10 rounded w-20" />
+                      <div className="h-2 bg-white/5 rounded w-8" />
+                      <div className="h-4 bg-white/10 rounded w-16" />
                     </div>
-                    <div className="h-10 bg-white/10 rounded-2xl w-28" />
+                    <div className="h-8 sm:h-10 bg-white/10 rounded-xl sm:rounded-2xl w-14 sm:w-28" />
                   </div>
                 </div>
               </div>

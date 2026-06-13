@@ -153,7 +153,7 @@ export default function AccountPage() {
             {/* Forms */}
             <form onSubmit={handleAuth} className="space-y-4">
               {authMode === 'register' && (
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1.5">
                     <label className="text-[9px] uppercase tracking-wider text-white/50 font-bold block">Full Name</label>
                     <input 

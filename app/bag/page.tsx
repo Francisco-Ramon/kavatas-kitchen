@@ -117,7 +117,7 @@ export default function BagPage() {
                     <Lightbulb className="w-4 h-4 text-[#DFB15B] animate-pulse" />
                     <span>AI Chef Suggestions</span>
                   </div>
-                  <div className="grid grid-cols-3 gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {recommendations.map((meal) => (
                       <div 
                         key={meal.id}

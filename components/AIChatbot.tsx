@@ -90,7 +90,7 @@ export default function AIChatbot({ isOpen, onClose, onExploreMenu }: AIChatbotP
   ];
 
   return (
-    <div className="fixed bottom-6 right-6 w-96 max-w-[calc(100vw-3rem)] h-[550px] bg-[#0C0C0E] border border-white/5 shadow-2xl rounded-3xl z-50 flex flex-col justify-between overflow-hidden animate-fade-in font-sans">
+    <div className="fixed inset-0 sm:inset-auto sm:bottom-6 sm:right-6 w-full sm:w-96 h-full sm:h-[550px] bg-[#0C0C0E] border-0 sm:border border-white/5 shadow-2xl rounded-none sm:rounded-3xl z-50 flex flex-col justify-between overflow-hidden animate-fade-in font-sans">
       
       {/* Concierge Header */}
       <div className="p-5 bg-gradient-to-r from-[#FF6F3D]/20 to-[#DFB15B]/20 border-b border-white/5 flex items-center justify-between">
@@ -169,7 +169,7 @@ export default function AIChatbot({ isOpen, onClose, onExploreMenu }: AIChatbotP
       )}
 
       {/* Input Form Bar */}
-      <div className="p-4 border-t border-white/5 bg-[#0B0B0C] flex gap-2 items-center">
+      <div className="p-4 pb-6 sm:pb-4 border-t border-white/5 bg-[#0B0B0C] flex gap-2 items-center">
         <input
           type="text"
           value={inputText}

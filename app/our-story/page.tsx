@@ -93,18 +93,18 @@ export default function StoryPage() {
               <ShieldCheck className="w-5 h-5" /> Welcome to the Circle!
             </div>
           ) : (
-            <form onSubmit={handleSubscribe} className="max-w-md mx-auto flex gap-2">
+            <form onSubmit={handleSubscribe} className="max-w-md mx-auto flex flex-col sm:flex-row gap-2.5">
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
-                className="flex-1 bg-white/5 border border-white/10 rounded-2xl py-3.5 px-4 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#DFB15B] transition-all"
+                className="w-full sm:flex-1 bg-white/5 border border-white/10 rounded-2xl py-3.5 px-4 text-xs text-white placeholder-white/30 focus:outline-none focus:border-[#DFB15B] transition-all"
               />
               <button
                 type="submit"
-                className="py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FF6F3D] to-[#DFB15B] text-[#0B0B0C] font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-[#FF6F3D]/10"
+                className="py-3.5 px-6 rounded-2xl bg-gradient-to-r from-[#FF6F3D] to-[#DFB15B] text-[#0B0B0C] font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-[#FF6F3D]/10 w-full sm:w-auto"
               >
                 <Mail className="w-4 h-4" /> Join
               </button>

@@ -258,14 +258,14 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
           </div>
 
           {/* Quick stats */}
-          <div className="hidden md:flex items-center gap-4 mr-6">
+          <div className="flex items-center gap-3 md:gap-4 mr-2 md:mr-6 text-right">
             <div className="text-right">
-              <p className="text-[9px] uppercase tracking-wider text-white/30">Revenue (Paid)</p>
-              <p className="font-serif font-black text-[#DFB15B] text-sm">KES {totalRevenue.toLocaleString()}</p>
+              <p className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/30">Revenue (Paid)</p>
+              <p className="font-serif font-black text-[#DFB15B] text-xs md:text-sm">KES {totalRevenue.toLocaleString()}</p>
             </div>
             <div className="text-right">
-              <p className="text-[9px] uppercase tracking-wider text-white/30">Pending Payment</p>
-              <p className="font-serif font-black text-[#FF6F3D] text-sm">{pendingCount} orders</p>
+              <p className="text-[8px] md:text-[9px] uppercase tracking-wider text-white/30">Pending</p>
+              <p className="font-serif font-black text-[#FF6F3D] text-xs md:text-sm">{pendingCount} ord</p>
             </div>
           </div>
 
@@ -274,12 +274,12 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
           </button>
         </div>
 
-        <div className="flex-1 flex overflow-hidden">
+        <div className="flex-1 flex flex-col md:flex-row overflow-hidden">
           {/* Sidebar */}
-          <div className="w-44 border-r border-white/5 bg-[#0C0C0E]/50 p-4 flex flex-col gap-2 flex-shrink-0">
+          <div className="w-full md:w-44 border-b md:border-b-0 md:border-r border-white/5 bg-[#0C0C0E]/50 p-3 md:p-4 flex flex-row md:flex-col gap-2 flex-shrink-0 overflow-x-auto scrollbar-none">
             {(['orders', 'meals', 'settings'] as const).map(tab => (
               <button key={tab} onClick={() => { setActiveTab(tab); resetForm(); }}
-                className={`w-full py-3 px-4 rounded-xl text-left text-[10px] uppercase tracking-wider font-bold transition-all cursor-pointer ${
+                className={`py-2 px-3 md:py-3 md:px-4 rounded-xl text-center md:text-left text-[10px] uppercase tracking-wider font-bold transition-all cursor-pointer whitespace-nowrap flex-1 md:flex-none ${
                   activeTab === tab ? 'bg-[#FF6F3D] text-[#0B0B0C]' : 'text-white/60 hover:text-white hover:bg-white/5'
                 }`}>
                 {tab === 'orders' ? `📦 Orders (${orders.length})` : tab === 'meals' ? `🍽️ Meals (${meals.length})` : '⚙️ Settings'}
@@ -385,17 +385,17 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
 
                           {/* ── MARK AS PAID (key feature) ── */}
                           {!order.isPaid && (
-                            <div className="flex items-center gap-2 ml-auto">
+                            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto sm:ml-auto">
                               <input
                                 type="text"
                                 value={mpesaRefs[order.id] || ''}
                                 onChange={e => setMpesaRefs(prev => ({ ...prev, [order.id]: e.target.value }))}
                                 placeholder="M-Pesa Ref (optional)"
-                                className="bg-white/5 border border-white/10 rounded-xl py-1.5 px-3 text-white text-[10px] focus:outline-none focus:border-[#DFB15B] w-36 transition-all"
+                                className="bg-white/5 border border-white/10 rounded-xl py-1.5 px-3 text-white text-[10px] focus:outline-none focus:border-[#DFB15B] w-full sm:w-36 transition-all"
                               />
                               <button
                                 onClick={() => markOrderAsPaid(order.id, mpesaRefs[order.id])}
-                                className="py-2 px-4 rounded-xl bg-gradient-to-r from-[#25D366] to-[#1db954] text-white font-bold text-[10px] uppercase tracking-wider hover:opacity-90 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer flex items-center gap-1.5 shadow-lg shadow-green-500/10"
+                                className="py-2 px-4 rounded-xl bg-gradient-to-r from-[#25D366] to-[#1db954] text-white font-bold text-[10px] uppercase tracking-wider hover:opacity-90 hover:scale-[1.02] active:scale-95 transition-all cursor-pointer flex items-center justify-center gap-1.5 shadow-lg shadow-green-500/10 w-full sm:w-auto"
                               >
                                 <Banknote className="w-3.5 h-3.5" /> Mark as Paid ✓
                               </button>
@@ -424,7 +424,7 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
 
                 {showAddForm ? (
                   <form onSubmit={handleSubmitMeal} className="space-y-4 bg-white/5 border border-white/5 p-6 rounded-2xl max-w-2xl">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <label className="text-[9px] uppercase tracking-wider text-white/50 font-bold block">Meal Name *</label>
                         <input type="text" required value={title} onChange={e => setTitle(e.target.value)} placeholder="e.g. Coconut Fish Curry"
@@ -454,7 +454,7 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
                     </div>
 
                     {/* Offers & Discount Prices */}
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div className="space-y-1.5">
                         <label className="text-[9px] uppercase tracking-wider text-white/50 font-bold block">Offer Title/Tag (Optional)</label>
                         <input type="text" value={offerText} onChange={e => setOfferText(e.target.value)} placeholder="e.g. 15% OFF, Buy 1 Get 1"

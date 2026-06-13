@@ -193,6 +193,33 @@ export default function NavBar() {
               <MessageCircle className="w-4 h-4 animate-pulse" /> AI Chat
             </button>
           </div>
+
+          {/* User Account Portal links in mobile menu */}
+          {currentUser ? (
+            <div className="flex flex-col gap-2 pt-2 border-t border-white/5">
+              <Link
+                href="/account"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3 px-4 rounded-xl bg-[#DFB15B]/10 border border-[#DFB15B]/20 text-[#DFB15B] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2"
+              >
+                <UserCheck className="w-4 h-4" /> {currentUser.name} (Account)
+              </Link>
+              <button
+                onClick={() => { setMobileMenuOpen(false); logoutAccount(); }}
+                className="w-full py-3 bg-white/5 rounded-xl border border-white/10 text-red-400 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <LogOut className="w-4 h-4" /> Sign Out
+              </button>
+            </div>
+          ) : (
+            <Link
+              href="/account"
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full py-3 bg-white/5 rounded-xl border border-white/10 text-white/80 font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <User className="w-4 h-4" /> Sign In / Account
+            </Link>
+          )}
         </div>
       )}
     </nav>

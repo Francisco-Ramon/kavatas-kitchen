@@ -28,18 +28,22 @@ export default function ReviewsPage() {
             return (
               <div key={isLive ? item.id : (item as any).id + idx}
                 className="rounded-3xl bg-[#18181A]/50 border border-white/5 p-6 flex flex-col justify-between hover:bg-[#18181A]/70 hover:border-white/10 transition-all duration-300 relative backdrop-blur-md overflow-hidden">
-                <span className="absolute top-6 right-6 text-[10px] uppercase tracking-wider font-bold py-1 px-3 bg-white/5 rounded-full border border-white/5 text-[#DFB15B]">
-                  {item.category}
-                </span>
-                {isLive && (
-                  <span className="absolute top-14 right-6 text-[8px] uppercase tracking-wider font-bold py-0.5 px-2 bg-green-500/10 text-green-400 border border-green-500/20 rounded-full flex items-center gap-0.5">
-                    <CheckCircle className="w-2.5 h-2.5" /> Verified Purchase
-                  </span>
-                )}
-                <div className="space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
                   <div className="flex gap-1 text-[#DFB15B]">
                     {[...Array(item.rating)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-current" />)}
                   </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[10px] uppercase tracking-wider font-bold py-1 px-3 bg-white/5 rounded-full border border-white/5 text-[#DFB15B]">
+                      {item.category}
+                    </span>
+                    {isLive && (
+                      <span className="text-[8px] uppercase tracking-wider font-bold py-0.5 px-2 bg-green-500/10 text-green-400 border border-green-500/20 rounded-full flex items-center gap-0.5 whitespace-nowrap">
+                        <CheckCircle className="w-2.5 h-2.5" /> Verified Purchase
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="space-y-4">
                   <p className="text-xs md:text-sm text-white/70 leading-relaxed font-serif italic">
                     "{isLive ? item.comment : (item as any).content}"
                   </p>

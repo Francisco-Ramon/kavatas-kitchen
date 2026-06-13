@@ -153,7 +153,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
 
       {/* Floating Order tracking widget shortcut if activeOrder exists */}
       {activeOrder && (
-        <div className="fixed bottom-6 right-24 z-40 select-none hidden sm:block">
+        <div className="fixed bottom-6 right-6 sm:right-24 z-40 select-none">
           <button
             onClick={() => setTrackerOpen(true)}
             className="py-3 px-5 rounded-full bg-[#FF6F3D] border border-transparent text-[#0B0B0C] font-bold text-xs uppercase tracking-widest hover:scale-105 transition-all duration-300 shadow-xl shadow-[#FF6F3D]/20 cursor-pointer flex items-center gap-1.5 animate-pulse"

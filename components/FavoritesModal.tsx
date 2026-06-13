@@ -25,7 +25,7 @@ export default function FavoritesModal({ isOpen, onClose }: FavoritesModalProps)
       />
 
       {/* Favorites panel */}
-      <div className="relative w-full max-w-md bg-[#0C0C0E]/95 border border-white/5 rounded-3xl p-6 shadow-2xl z-10 overflow-hidden flex flex-col max-h-[80vh]">
+      <div className="relative w-full max-w-md bg-[#0C0C0E]/95 border border-white/5 rounded-3xl p-4 sm:p-6 shadow-2xl z-10 overflow-hidden flex flex-col max-h-[80vh]">
         {/* Header */}
         <div className="flex items-center justify-between pb-4 border-b border-white/5 mb-6">
           <div className="flex items-center gap-2">

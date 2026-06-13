@@ -54,7 +54,7 @@ export default function ReviewModal({ isOpen, orderId, customerName, onClose }: 
         {!submitted ? (
           <>
             {/* Header */}
-            <div className="p-6 border-b border-white/5 flex items-center justify-between">
+            <div className="p-4 sm:p-6 border-b border-white/5 flex items-center justify-between">
               <div>
                 <h2 className="text-lg font-serif font-bold text-white">Share Your Experience 🌟</h2>
                 <p className="text-[10px] text-[#DFB15B] font-semibold uppercase tracking-widest mt-0.5">
@@ -66,7 +66,7 @@ export default function ReviewModal({ isOpen, orderId, customerName, onClose }: 
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-6 space-y-6">
+            <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-6">
               {/* Star Rating */}
               <div className="text-center space-y-3">
                 <p className="text-xs uppercase tracking-wider text-white/50 font-bold">How was your meal?</p>
