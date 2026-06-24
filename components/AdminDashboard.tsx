@@ -583,7 +583,7 @@ export default function AdminDashboard({ isOpen, onClose }: AdminDashboardProps)
                 <div className="space-y-4">
                   <div className="p-5 bg-white/5 border border-white/5 rounded-2xl space-y-3">
                     <p className="text-xs font-bold text-white">WhatsApp Business Number</p>
-                    <p className="text-base font-mono text-[#DFB15B] font-black">+254 114 590 693</p>
+                    <p className="text-base font-mono text-[#DFB15B] font-black">+254 740 240 489</p>
                     <p className="text-[10px] text-white/30">All order payloads automatically open a click-to-chat WhatsApp draft to this number.</p>
                   </div>
                   <div className="p-5 bg-white/5 border border-white/5 rounded-2xl space-y-3">

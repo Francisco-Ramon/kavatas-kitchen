@@ -318,7 +318,7 @@ export default function CheckoutModal({ isOpen, onClose, onOrderCompleted }: Che
                 {submitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Transmitting…</> : <><Send className="w-4 h-4" /> Confirm & WhatsApp Chef</>}
               </button>
             </div>
-            <p className="text-[9px] text-center text-white/25 leading-relaxed">Your order opens a prefilled WhatsApp message to Chef Kavata at +254 114 590 693 for personal delivery coordination.</p>
+            <p className="text-[9px] text-center text-white/25 leading-relaxed">Your order opens a prefilled WhatsApp message to Chef Kavata at +254 740 240 489 for personal delivery coordination.</p>
           </form>
         )}
       </div>

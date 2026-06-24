@@ -251,7 +251,7 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
     setActiveOrderState(newOrder);
     clearCart();
 
-    const businessPhone = '254114590693';
+    const businessPhone = '254740240489';
     let message = `*🌟 NEW ORDER – KAVATA'S KITCHEN 🌟*\n\n`;
     message += `*Order ID:* #${orderId}\n`;
     message += `*Customer:* ${customer.name}\n`;

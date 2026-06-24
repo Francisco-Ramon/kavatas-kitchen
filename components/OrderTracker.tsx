@@ -165,7 +165,7 @@ export default function OrderTracker({ isOpen, onClose }: OrderTrackerProps) {
                       Send your M-Pesa payment to Chef Kavata's number. Once confirmed, this tracker will update to <span className="text-[#DFB15B] font-bold">Paid</span> automatically.
                     </p>
                     <a
-                      href={`https://wa.me/254114590693?text=Hello%20Kavata's%20Kitchen%2C%20I've%20sent%20M-Pesa%20for%20Order%20%23${activeOrder.id}%20(KES%20${activeOrder.total.toLocaleString()})`}
+                      href={`https://wa.me/254740240489?text=Hello%20Kavata's%20Kitchen%2C%20I've%20sent%20M-Pesa%20for%20Order%20%23${activeOrder.id}%20(KES%20${activeOrder.total.toLocaleString()})`}
                       target="_blank" rel="noreferrer"
                       className="inline-flex items-center gap-1.5 text-[10px] text-[#25D366] font-bold uppercase tracking-wider border border-[#25D366]/20 bg-[#25D366]/10 py-2 px-4 rounded-xl transition-all hover:bg-[#25D366]/20 cursor-pointer"
                     >
@@ -176,7 +176,7 @@ export default function OrderTracker({ isOpen, onClose }: OrderTrackerProps) {
 
                 {/* WhatsApp contact */}
                 <a
-                  href={`https://wa.me/254114590693?text=Hello%2C%20tracking%20Order%20%23${activeOrder.id}`}
+                  href={`https://wa.me/254740240489?text=Hello%2C%20tracking%20Order%20%23${activeOrder.id}`}
                   target="_blank" rel="noreferrer"
                   className="w-full py-2.5 bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] font-bold text-[10px] uppercase tracking-wider border border-[#25D366]/20 transition-all rounded-xl flex items-center justify-center gap-1.5 cursor-pointer"
                 >

@@ -82,9 +82,9 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
             <h4 className="text-xs uppercase tracking-wider text-white font-bold">Concierge Contacts</h4>
             <ul className="space-y-2 leading-relaxed">
               <li>WhatsApp Direct Chat:</li>
-              <li className="font-semibold text-white font-mono">+254 114 590 693</li>
+              <li className="font-semibold text-white font-mono">+254 740 240 489</li>
               <li>General Inquiries:</li>
-              <li className="font-semibold text-white truncate">concierge@kavatas-kitchen.com</li>
+              <li className="font-semibold text-white truncate">katavatashomekitchen@gmail.com</li>
             </ul>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function AppShell({ children }: { children: React.ReactNode }) {
       {/* WhatsApp Fixed Concierge shortcut button */}
       <div className="fixed bottom-6 left-6 z-40 select-none">
         <a
-          href="https://wa.me/254114590693?text=Hello%20Chef%20Kavata%2C%20I'm%20visiting%20your%20Kitchen%20gourmet%20platform!"
+          href="https://wa.me/254740240489?text=Hello%20Chef%20Kavata%2C%20I'm%20visiting%20your%20Kitchen%20gourmet%20platform!"
           target="_blank"
           rel="noreferrer"
           className="w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-xl shadow-[#25D366]/20 hover:scale-105 hover:bg-[#20ba5a] active:scale-95 transition-all duration-300 relative group cursor-pointer"
